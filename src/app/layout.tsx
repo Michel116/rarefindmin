@@ -3,16 +3,15 @@ import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-// import { siteConfig } from '@/config/site'; // siteConfig (значение) не используется, SiteConfigData используется ниже
 import { CartProvider } from '@/context/CartContext';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { MessageCircle } from 'lucide-react';
-import { SiteConfigData } from '@/config/site'; 
+import { SiteConfigData } from '@/config/site';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin', 'latin-ext'], 
+  subsets: ['latin-ext'], // Используем только 'latin-ext', так как он должен покрывать необходимые символы
 });
 
 export const metadata: Metadata = {
@@ -33,7 +32,7 @@ export default function RootLayout({
           <Toaster />
           <Link href={SiteConfigData.supportLink} target="_blank" rel="noopener noreferrer" passHref>
             <Button
-              variant="default" 
+              variant="default"
               className="fixed bottom-5 right-5 z-50 h-12 w-12 rounded-full p-0 shadow-lg"
               aria-label="Меню чата"
             >
