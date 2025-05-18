@@ -3,8 +3,7 @@ import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { siteConfig }
- from '@/config/site';
+// import { siteConfig } from '@/config/site'; // siteConfig (значение) не используется, SiteConfigData используется ниже
 import { CartProvider } from '@/context/CartContext';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -17,8 +16,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
+  title: SiteConfigData.name,
+  description: SiteConfigData.description,
 };
 
 export default function RootLayout({
